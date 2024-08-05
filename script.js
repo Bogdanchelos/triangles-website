@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        alert(`Ваш результат: ${score} з ${questions.length}`);
+                alert(`Ваш результат: ${score} з ${questions.length}`);
     }
 
     loadQuiz();
@@ -101,4 +101,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function onMouseDown(e) {
-        const rect = canvas.getBoundingClient
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        for (let i = 0; i < points.length; i++) {
+            if (isMouseInPoint(mouseX, mouseY, points[i])) {
+                draggingPoint = i;
+                break;
+            }
+        }
+    }
+
+    function onMouseMove(e) {
+        if (draggingPoint !== null) {
+            const rect = canvas.getBoundingClientRect();
+            points[draggingPoint].x = e.clientX - rect.left;
+            points[draggingPoint].y = e.clientY - rect.top;
+            drawTriangle();
+        }
+    }
+
+    function onMouseUp() {
+        draggingPoint = null;
+    }
+
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseup', onMouseUp);
+
+    function checkTriangleType() {
+        const a = Math.sqrt((points[1].x - points[0].x) ** 2 + (points[1].y - points[0].y) ** 2);
+        const b = Math.sqrt((points[2].x - points[1].x) ** 2 + (points[2].y - points[1].y) ** 2);
+        const c = Math.sqrt((points[0].x - points[2].x) ** 2 + (points[0].y - points[2].y) ** 2);
+
+        let type = '';
+        if (Math.abs(a - b) < 1 && Math.abs(b - c) < 1) {
+            type = 'Рівносторонній';
+        } else if (Math.abs(a - b) < 1 || Math.abs(b - c) < 1 || Math.abs(a - c) < 1) {
+            type = 'Рівнобедрений';
+        } else {
+            type = 'Різносторонній';
+        }
+
+        alert(`Цей трикутник є: ${type}`);
+    }
+
+    checkButton.addEventListener('click', checkTriangleType);
+
+    drawTriangle();
+});
+
+
