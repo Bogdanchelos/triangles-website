@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трикутники для 5 класу</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Вивчаємо трикутники разом!</h1>
+    </header>
+    <main>
+        <section id="intro">
+            <h2>Що таке трикутник?</h2>
+            <p>Трикутник — це геометрична фігура, що складається з трьох сторін та трьох кутів.</p>
+        </section>
+        <section id="types">
+            <h2>Види трикутників</h2>
+            <div class="triangle-type">
+                <img src="images/equilateral.png" alt="Рівносторонній трикутник">
+                <h3>Рівносторонній</h3>
+                <p>Усі сторони рівні, усі кути по 60°.</p>
+            </div>
+            <div class="triangle-type">
+                <img src="images/isosceles.png" alt="Рівнобедрений трикутник">
+                <h3>Рівнобедрений</h3>
+                <p>Дві сторони рівні, кути при основі рівні.</p>
+            </div>
+            <div class="triangle-type">
+                <img src="images/scalene.png" alt="Різносторонній трикутник">
+                <h3>Різносторонній</h3>
+                <p>Усі сторони різні, кути теж.</p>
+            </div>
+        </section>
+        <section id="quiz">
+            <h2>Перевірте свої знання!</h2>
+            <div id="quiz-container"></div>
+        </section>
+        <section id="build-triangle">
+            <h2>Побудуй свій трикутник</h2>
+            <div id="canvas-container">
+                <canvas id="triangle-canvas" width="400" height="400"></canvas>
+            </div>
+            <button id="check-triangle">Перевірити трикутник</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Освітній проект</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
