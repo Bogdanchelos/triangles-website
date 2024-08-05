@@ -1,0 +1,89 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6cc;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #336699;
+}
+
+.triangle-type {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.triangle-type img {
+    max-width: 100px;
+    margin: 10px auto;
+}
+
+#canvas-container {
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+#check-triangle {
+    background-color: #6cc;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 8px;
+}
+
+#check-triangle:hover {
+    background-color: #559;
+}
+
+footer {
+    background-color: #6cc;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.character {
+    animation: wave 2s infinite;
+    display: inline-block;
+    cursor: pointer;
+}
